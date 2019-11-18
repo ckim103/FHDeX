@@ -2,6 +2,7 @@
 # If you set AMREX_HOME as an environment variable, this line will be ignored
 AMREX_HOME ?= ../../../amrex/
 FBOXLIB_HOME ?= ../../../FBoxLib/
+MUI_HOME ?= ../../../MUI/
 
 DEBUG     = TRUE
 USE_MPI   = TRUE
@@ -47,6 +48,9 @@ INCLUDE_LOCATIONS += ../../src_common/src_F90
 include ../../src_common/Make.package
 VPATH_LOCATIONS   += ../../src_common/
 INCLUDE_LOCATIONS += ../../src_common/
+
+VPATH_LOCATIONS   += $(MUI_HOME)
+INCLUDE_LOCATIONS += $(MUI_HOME)
 
 include $(AMREX_HOME)/Src/Base/Make.package
 include $(AMREX_HOME)/Src/Boundary/Make.package
