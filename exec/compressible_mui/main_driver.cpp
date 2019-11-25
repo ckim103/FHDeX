@@ -12,9 +12,17 @@
 
 #include "StructFact.H"
 
+#include <iostream>
+using namespace std;
+
 using namespace amrex;
 using namespace common;
 using namespace compressible;
+
+void mui_exchange(MultiFab& cu, const amrex::Real* dx, const amrex::Real dt)
+{
+    return;
+}
 
 // argv contains the name of the inputs file entered at the command line
 void main_driver(const char* argv)
@@ -497,6 +505,8 @@ void main_driver(const char* argv)
     
         RK3step(cu, cup, cup2, cup3, prim, source, eta, zeta, kappa, chi, D, flux,
                 stochFlux, cornx, corny, cornz, visccorn, rancorn, geom, dx, dt);
+
+	mui_exchange(cu, dx, dt);
 
         // timer
         Real ts2 = ParallelDescriptor::second() - ts1;
